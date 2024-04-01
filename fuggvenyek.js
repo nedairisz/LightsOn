@@ -69,7 +69,7 @@ export function lampak(){
     const szamlaloElem = $("#szamlalo");
 
     const vilagitoMezok = mezoElemek.filter(".vilagit");
-    szamlaloElem.text("A felkapcsolt lámpák száma: " + vilagitoMezok.length);
+    szamlaloElem.text(vilagitoMezok.length);
 }
 
 export function ujJatek() {
@@ -88,8 +88,8 @@ export function ujJatek() {
 export function szoveg() {
     const title = "<h2>LightsOn</h2>";
     $("#jatekter").before(title);
-    const instructions = "<p>Kapcsold le a lehető legtöbb lámpákat! (Legyen az összes fekete!)</p>";
+    const instructions = "<p>Kapcsold le a lehető legtöbb lámpákat!<br> (Legyen az összes fekete!)</p>";
     $("h2").after(instructions);
-    const szamlaloElem = $("#szamlalo");
-    szamlaloElem.text("A felkapcsolt lámpák száma: ");
+    const szamolo = "<p>A lekapcsolt lámpák száma: <br></p>";
+    $("button").after(szamolo);
 }

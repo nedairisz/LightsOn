@@ -85,7 +85,7 @@ export function ujJatek() {
     });
 }
 
-export function cim() {
+export function szoveg() {
     const title = "<h2>LightsOn</h2>";
     $("#jatekter").before(title);
     const instructions = "<p>Kapcsold le a lehető legtöbb lámpákat! (Legyen az összes fekete!)</p>";

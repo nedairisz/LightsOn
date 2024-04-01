@@ -1,14 +1,8 @@
-import { listaLetrehoz } from "./fuggvenyek.js";
-import { szerkezet } from "./fuggvenyek.js";
-import { esemeny } from "./fuggvenyek.js";
-import { ujJatek } from "./fuggvenyek.js";
-import { cim } from "./fuggvenyek.js";
-
+import { listaLetrehoz, szoveg, szerkezet, esemeny, ujJatek } from "./fuggvenyek.js";
 
 let allapotLista= listaLetrehoz()
 console.log(allapotLista)
 szerkezet(allapotLista)
 esemeny(allapotLista)
-console.log(allapotLista)
 ujJatek()
-cim()
+szoveg()

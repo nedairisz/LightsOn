@@ -35,6 +35,10 @@ export function esemeny(){
             element.toggleClass("vilagit");
         }
 
+        function updateSzamlalo() {
+            const vilagitMezokSzama = mezoElemek.filter('.vilagit').length;
+            szamlaloElem.text(vilagitMezokSzama);
+        }
        
         const szomszedIndexek = [
             [1, 3],     // 0
@@ -55,5 +59,37 @@ export function esemeny(){
 
         // A kattintott mezőre vonatkozó átkapcsolás
         toggleVilagitClass(targetDiv);
+
+        lampak()
     });
+}
+
+export function lampak(){
+    const mezoElemek = $("#jatekter div");
+    const szamlaloElem = $("#szamlalo");
+
+    const vilagitoMezok = mezoElemek.filter(".vilagit");
+    szamlaloElem.text("A felkapcsolt lámpák száma: " + vilagitoMezok.length);
+}
+
+export function ujJatek() {
+    const lista = listaLetrehoz(); 
+    szerkezet(lista); 
+    esemeny(); 
+    lampak(); 
+
+    $(document).ready(function() {
+        $("button").click(function() {
+            ujJatek();
+        });
+    });
+}
+
+export function cim() {
+    const title = "<h2>LightsOn</h2>";
+    $("#jatekter").before(title);
+    const instructions = "<p>Kapcsold le a lehető legtöbb lámpákat! (Legyen az összes fekete!)</p>";
+    $("h2").after(instructions);
+    const szamlaloElem = $("#szamlalo");
+    szamlaloElem.text("A felkapcsolt lámpák száma: ");
 }

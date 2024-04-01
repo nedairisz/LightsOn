@@ -1,11 +1,10 @@
-
 export function listaLetrehoz(){
     const allapotLista=[]
     for (let index = 0; index < 9; index++) {
         const randomSzam = Math.floor(Math.random() * 2); 
         allapotLista.push(randomSzam); 
     }
-    return allapotLista
+    return allapotLista;
 }
 
 export function szerkezet(lista){
@@ -21,13 +20,40 @@ export function szerkezet(lista){
             
     }
     mezoElem.html(mezo);
-    esemeny(lista)
+    return lista;
 }
 
-export function esemeny(lista){
-    const mezoElemek= $("#jatekter div")
+export function esemeny(){
+    const mezoElemek = $("#jatekter div");
+
     mezoElemek.on("click", function(event){
-        console.log($(event.target))
-        
-    })
+        const targetIndex = mezoElemek.index($(this)); // Az aktuális div indexének meghatározása
+        const targetDiv = $(this);
+
+        // Függvény a világító osztály hozzáadására vagy eltávolítására
+        function toggleVilagitClass(element) {
+            element.toggleClass("vilagit");
+        }
+
+       
+        const szomszedIndexek = [
+            [1, 3],     // 0
+            [0, 2, 4],     // 1
+            [1, 5],       // 2
+            [0, 4, 6],     // 3
+            [1, 3, 5, 7],  // 4
+            [2, 4, 8],    // 5
+            [3, 7],        // 6
+            [4, 6, 8],   // 7
+            [5, 7]      // 8
+        ];
+
+        // Átkapcsolás a szomszédos mezőkre
+        szomszedIndexek[targetIndex].forEach(szomszedIndex => {
+            toggleVilagitClass(mezoElemek.eq(szomszedIndex));
+        });
+
+        // A kattintott mezőre vonatkozó átkapcsolás
+        toggleVilagitClass(targetDiv);
+    });
 }
